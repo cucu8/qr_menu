@@ -450,7 +450,7 @@ export default function Home() {
         className="nav-sticky transition-shadow duration-300"
         style={{ boxShadow: isScrolled ? "0 4px 24px rgba(0,0,0,0.4)" : "none" }}
       >
-        <div ref={navRef} className="hide-scrollbar flex gap-2 overflow-x-auto px-4 py-3">
+        <div ref={navRef} className="hide-scrollbar flex gap-2 overflow-x-auto px-4 py-3 sm:justify-center">
           {menuData.map((cat) => (
             <button
               key={cat.id}
