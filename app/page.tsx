@@ -8,6 +8,7 @@ interface MenuItem {
   name: string;
   description: string;
   price: string;
+  price2?: string;
   emoji: string;
 }
 
@@ -15,191 +16,341 @@ interface MenuCategory {
   id: string;
   title: string;
   icon: string;
+  priceLabels?: [string, string];
   items: MenuItem[];
 }
 
 const menuData: MenuCategory[] = [
   {
-    id: "baslangic",
-    title: "Başlangıçlar",
-    icon: "🥗",
+    id: "efsane-menuler",
+    title: "Efsane Menüler",
+    icon: "🔥",
     items: [
       {
-        name: "Mercimek Çorbası",
-        description: "Geleneksel kırmızı mercimek çorbası, limon ve kıtır ekmek ile",
-        price: "120",
-        emoji: "🍲",
+        name: "Efsane Köfte",
+        description: "200gr. Köfte, Salata, Ezme, İkram",
+        price: "300",
+        emoji: "🥩",
       },
       {
-        name: "Humus",
-        description: "Nohut ezmesi, tahin, zeytinyağı ve kırmızı biber",
-        price: "110",
-        emoji: "🫘",
+        name: "Efsane Sucuk",
+        description: "200gr. Sucuk, Salata, Ezme, İkram",
+        price: "300",
+        emoji: "🌭",
       },
       {
-        name: "Atom",
-        description: "Bol acılı ince kıyım ezme, nar ekşisi ve baharatlar",
+        name: "Efsane Köfte Sucuk Karışık",
+        description: "250gr. Salata, Ezme, İkram",
+        price: "350",
+        emoji: "🍖",
+      },
+      {
+        name: "Günün Çorbası",
+        description: "Her gün taze hazırlanan çorba",
         price: "100",
-        emoji: "🌶️",
-      },
-      {
-        name: "Cacık",
-        description: "Yoğurt, salatalık, nane ve sarımsak",
-        price: "90",
-        emoji: "🥒",
-      },
-      {
-        name: "Sigara Böreği",
-        description: "Çıtır yufka içinde beyaz peynir ve maydanoz",
-        price: "130",
-        emoji: "🥟",
-      },
-      {
-        name: "Mevsim Salata",
-        description: "Taze mevsim yeşillikleri, domates, salatalık, nar ekşili sos",
-        price: "110",
-        emoji: "🥬",
+        emoji: "🍲",
       },
     ],
   },
   {
-    id: "ara-sicak",
-    title: "Ara Sıcaklar",
-    icon: "🍳",
+    id: "ekmek-arasi",
+    title: "Ekmek Arası",
+    icon: "🥖",
+    priceLabels: ["Yarım", "Üç Çeyrek"],
     items: [
       {
-        name: "Kaşarlı Mantar Sote",
-        description: "Tereyağında sote edilmiş mantar, kaşar peyniri ile",
-        price: "150",
-        emoji: "🍄",
+        name: "Sucuk Ekmek",
+        description: "100gr. Sucuk, Domates, Turşu",
+        price: "100",
+        price2: "150",
+        emoji: "🌭",
       },
       {
-        name: "Patates Kızartması",
-        description: "Çıtır patates, özel baharat karışımı ve ranch sos",
+        name: "Köfte Ekmek",
+        description: "80gr. 4 Adet Köfte, Domates, Turşu, İsteğe Göre Soğan, Özel Sos",
+        price: "150",
+        price2: "225",
+        emoji: "🥩",
+      },
+      {
+        name: "Tavuk Döner Ekmek Arası",
+        description: "80gr. Döner, Domates, Turşu, Soğan, Marul",
+        price: "150",
+        price2: "225",
+        emoji: "🍗",
+      },
+      {
+        name: "İzmir Kumru",
+        description: "Sosis, Kaşar Peyniri, Turşu, Domates, Ketçap, Mayonez",
+        price: "150",
+        price2: "200",
+        emoji: "🥪",
+      },
+      {
+        name: "Patso",
+        description: "Patates, Sosis, Ketçap, Mayonez",
+        price: "150",
+        price2: "200",
+        emoji: "🍟",
+      },
+      {
+        name: "Ekmek Arası Çıtır Tavuk",
+        description: "120gr. Çıtır Tavuk, Domates, Turşu, Soğan",
+        price: "150",
+        price2: "200",
+        emoji: "🍗",
+      },
+    ],
+  },
+  {
+    id: "burgerler",
+    title: "Burgerler",
+    icon: "🍔",
+    items: [
+      {
+        name: "Gocaman Burger Menü + Ayran",
+        description: "130gr Köfte, Cheddar Peyniri, Turşu, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "300",
+        emoji: "🍔",
+      },
+      {
+        name: "Gocaman Burger Menü + Kola",
+        description: "130gr Köfte, Cheddar Peyniri, Turşu, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "350",
+        emoji: "🍔",
+      },
+      {
+        name: "Gocaman CheeseBurger Menü + Ayran",
+        description: "180gr Köfte, Bol Cheddar Peyniri, Turşu, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "325",
+        emoji: "🧀",
+      },
+      {
+        name: "Gocaman CheeseBurger Menü + Kola",
+        description: "130gr Köfte, Bol Cheddar Peyniri, Turşu, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "375",
+        emoji: "🧀",
+      },
+      {
+        name: "Çift Etli Burger Menü + Ayran",
+        description: "180gr Köfte, Turşu, Cheddar Peyniri, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "400",
+        emoji: "🔥",
+      },
+      {
+        name: "Tavuk Burger Menü + Ayran",
+        description: "180gr Tavuk, Cheddar Peyniri, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "250",
+        emoji: "🐔",
+      },
+      {
+        name: "Sucuk Burger Menü + Ayran",
+        description: "Sucuk, Cheddar Peyniri, Marul, Özel Burger Sos, Domates, Patates Kızartması",
+        price: "250",
+        emoji: "🌭",
+      },
+    ],
+  },
+  {
+    id: "durumler",
+    title: "Dürümler",
+    icon: "🌯",
+    items: [
+      {
+        name: "Tavuk Dürüm + Patates Kızartması",
+        description: "80gr. Döner, Domates, Turşu, Soğan, Marul",
+        price: "170",
+        emoji: "🍗",
+      },
+      {
+        name: "Köfte Dürüm + Patates Kızartması",
+        description: "80gr. 4 Adet Köfte, Domates, Turşu, İsteğe Göre Soğan, Özel Sos",
+        price: "200",
+        emoji: "🥩",
+      },
+      {
+        name: "Sucuk Dürüm + Patates Kızartması",
+        description: "100gr. Sucuk, Domates, Turşu",
+        price: "150",
+        emoji: "🌭",
+      },
+      {
+        name: "Kumru Dürüm + Patates Kızartması",
+        description: "Sosis, kaşar peyniri, turşu, domates",
+        price: "170",
+        emoji: "🥪",
+      },
+    ],
+  },
+  {
+    id: "aparatifler",
+    title: "Aparatifler",
+    icon: "🍟",
+    items: [
+      {
+        name: "Patates Kızartması Küçük Boy",
+        description: "Çıtır patates kızartması",
         price: "100",
         emoji: "🍟",
       },
       {
-        name: "Halloumi Izgara",
-        description: "Izgarada pişirilmiş hellim peyniri, bal ve susam ile",
-        price: "160",
+        name: "Patates Kızartması Büyük Boy",
+        description: "Bol porsiyonlu çıtır patates",
+        price: "175",
+        emoji: "🍟",
+      },
+      {
+        name: "Çıtır Tavuk 8'li Patatesli",
+        description: "8 adet çıtır tavuk parçası, patates kızartması ile",
+        price: "275",
+        emoji: "🍗",
+      },
+    ],
+  },
+  {
+    id: "tostlar",
+    title: "Tostlar",
+    icon: "🧀",
+    items: [
+      {
+        name: "Kaşarlı Tost",
+        description: "Kaşar peynirli klasik tost",
+        price: "100",
         emoji: "🧀",
       },
       {
-        name: "Kanat",
-        description: "Baharatlı tavuk kanatları, acılı sos ve mavi peynir dip",
-        price: "180",
-        emoji: "🍗",
-      },
-      {
-        name: "Falafel",
-        description: "Nohut köftesi, tahin sos ve taze yeşillikler",
-        price: "130",
-        emoji: "🧆",
+        name: "Sucuklu Kaşarlı Tost",
+        description: "Sucuk ve kaşar peynirli tost",
+        price: "150",
+        emoji: "🌭",
       },
     ],
   },
   {
-    id: "ana-yemek",
-    title: "Ana Yemekler",
-    icon: "🥩",
+    id: "kahvalti",
+    title: "Kahvaltı",
+    icon: "🍳",
     items: [
       {
-        name: "Izgara Köfte",
-        description: "El yapımı dana köfte, közlenmiş biber ve pilav ile",
-        price: "280",
-        emoji: "🔥",
-      },
-      {
-        name: "Tavuk Şiş",
-        description: "Marine edilmiş tavuk göğsü, sebze ızgara ve lavaş",
-        price: "250",
-        emoji: "🍢",
-      },
-      {
-        name: "Kuzu Pirzola",
-        description: "Fırında kuzu pirzola, biberiye ve fırın patates ile",
+        name: "Serpme Kahvaltı",
+        description: "Kişi başı fiyatıdır, en az iki kişilik servis açılır",
         price: "450",
-        emoji: "🍖",
+        emoji: "🥐",
       },
       {
-        name: "Levrek Izgara",
-        description: "Taze levrek, roka salata ve limon sos ile",
-        price: "380",
-        emoji: "🐟",
+        name: "Kahvaltı Tabağı",
+        description: "Zengin kahvaltı tabağı",
+        price: "300",
+        emoji: "🍳",
       },
       {
-        name: "Karışık Izgara",
-        description: "Köfte, tavuk, kuzu pirzola, közlenmiş sebzeler ve pilav",
-        price: "520",
-        emoji: "🥘",
+        name: "Sucuklu Yumurta",
+        description: "Sucuk ve yumurta",
+        price: "200",
+        emoji: "🥚",
       },
       {
-        name: "Mantarlı Risotto",
-        description: "Kremalı arborio pirinci, karışık mantar ve parmesan",
-        price: "240",
-        emoji: "🍚",
-      },
-      {
-        name: "Biftek",
-        description: "250gr dana biftek, tereyağı sos ve patates püresi ile",
-        price: "480",
-        emoji: "🥩",
+        name: "Sucuklu Menemen",
+        description: "Sucuklu menemen",
+        price: "200",
+        emoji: "🍅",
       },
     ],
   },
   {
-    id: "icecekler",
-    title: "İçecekler",
-    icon: "🍹",
+    id: "icecekler-tatlilar",
+    title: "İçecekler & Tatlılar",
+    icon: "🥤",
     items: [
       {
-        name: "Türk Kahvesi",
-        description: "Geleneksel Türk kahvesi, lokum ile servis edilir",
+        name: "Büyük Ayran",
+        description: "Soğuk içecek",
         price: "70",
-        emoji: "☕",
-      },
-      {
-        name: "Taze Limonata",
-        description: "Taze sıkılmış limon, nane ve buz",
-        price: "80",
-        emoji: "🍋",
-      },
-      {
-        name: "Ayran",
-        description: "Geleneksel yoğurt içeceği",
-        price: "50",
         emoji: "🥛",
       },
       {
-        name: "Çay",
-        description: "Demlik çay, ince belli bardakta servis edilir",
-        price: "30",
-        emoji: "🍵",
-      },
-      {
-        name: "Meyve Suyu",
-        description: "Portakal, şeftali veya vişne — taze sıkım",
-        price: "90",
-        emoji: "🧃",
-      },
-      {
-        name: "Smoothie",
-        description: "Muz, çilek, yaban mersini ve yoğurt karışımı",
-        price: "120",
-        emoji: "🫐",
-      },
-      {
-        name: "Meşrubat",
-        description: "Kola, Fanta, Sprite — 330ml",
-        price: "60",
+        name: "Coca Cola",
+        description: "Soğuk içecek",
+        price: "70",
         emoji: "🥤",
       },
       {
-        name: "Su",
-        description: "Doğal kaynak suyu — 500ml",
-        price: "20",
+        name: "Fanta",
+        description: "Soğuk içecek",
+        price: "70",
+        emoji: "🥤",
+      },
+      {
+        name: "Sprite",
+        description: "Soğuk içecek",
+        price: "70",
+        emoji: "🥤",
+      },
+      {
+        name: "Cappy Çeşit",
+        description: "Soğuk içecek",
+        price: "70",
+        emoji: "🧃",
+      },
+      {
+        name: "Fuse Tea Çeşit",
+        description: "Soğuk içecek",
+        price: "70",
+        emoji: "🧃",
+      },
+      {
+        name: "Meyveli Soda Çeşitleri",
+        description: "Soğuk içecek",
+        price: "50",
+        emoji: "🫧",
+      },
+      {
+        name: "Beypazarı Soda",
+        description: "Soğuk içecek",
+        price: "30",
+        emoji: "🫧",
+      },
+      {
+        name: "Şalgam Suyu",
+        description: "Soğuk içecek",
+        price: "40",
+        emoji: "🥤",
+      },
+      {
+        name: "Su (250ml)",
+        description: "Su",
+        price: "15",
         emoji: "💧",
+      },
+      {
+        name: "Çay",
+        description: "Demlik çay",
+        price: "20",
+        emoji: "🍵",
+      },
+      {
+        name: "Türk Kahvesi",
+        description: "Geleneksel Türk kahvesi",
+        price: "80",
+        emoji: "☕",
+      },
+      {
+        name: "Sütlü Kahve",
+        description: "Sıcak içecek",
+        price: "80",
+        emoji: "☕",
+      },
+      {
+        name: "Çikolatalı Sufle",
+        description: "Tatlı",
+        price: "200",
+        emoji: "🍫",
+      },
+      {
+        name: "Palyaço",
+        description: "Tatlı",
+        price: "150",
+        emoji: "🍨",
       },
     ],
   },
@@ -208,7 +359,7 @@ const menuData: MenuCategory[] = [
 /* ───────── Component ───────── */
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState<string>("baslangic");
+  const [activeCategory, setActiveCategory] = useState<string>("efsane-menuler");
   const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -246,7 +397,7 @@ export default function Home() {
             scrollActiveTabIntoView(cat.id);
           }
         },
-        { rootMargin: "-40% 0px -55% 0px" }
+        { rootMargin: "-30% 0px -65% 0px" }
       );
 
       observer.observe(el);
@@ -258,6 +409,7 @@ export default function Home() {
 
   const scrollToCategory = (id: string) => {
     setActiveCategory(id);
+    scrollActiveTabIntoView(id);
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
   };
@@ -265,7 +417,7 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
       {/* ─── Hero Header ─── */}
-      <header className="hero-gradient relative overflow-hidden px-4 pt-12 pb-6 text-center">
+      <header className="hero-gradient relative overflow-hidden px-4 pt-10 pb-5 text-center">
         {/* Decorative blurred circles */}
         <div
           className="pointer-events-none absolute -top-20 -left-20 h-64 w-64 rounded-full opacity-20 blur-3xl"
@@ -277,18 +429,18 @@ export default function Home() {
         />
 
         <div className="animate-fade-in-up relative z-10">
-          <div className="animate-float mx-auto mb-4 text-5xl">🍽️</div>
+          <div className="animate-float mx-auto mb-3 text-4xl">🌶️</div>
           <h1
-            className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl"
+            className="mb-1 text-3xl font-bold tracking-tight sm:text-4xl"
             style={{ fontFamily: "var(--font-playfair), serif", color: "var(--foreground)" }}
           >
-            Lezzet Durağı
+            Karabiber Express
           </h1>
-          <p className="text-sm tracking-widest uppercase" style={{ color: "var(--accent)" }}>
-            — Dijital Menü —
+          <p className="text-xs tracking-widest uppercase" style={{ color: "var(--accent)" }}>
+            — Kastamonu Sucuk Dükkanı —
           </p>
-          <p className="mx-auto mt-3 max-w-xs text-sm" style={{ color: "var(--text-secondary)" }}>
-            Taze malzemeler ile hazırlanan özel lezzetlerimizi keşfedin
+          <p className="mx-auto mt-2 max-w-xs text-sm" style={{ color: "var(--text-secondary)" }}>
+            Lezzetin adresi • Cide / Kastamonu
           </p>
         </div>
       </header>
@@ -298,18 +450,17 @@ export default function Home() {
         className="nav-sticky transition-shadow duration-300"
         style={{ boxShadow: isScrolled ? "0 4px 24px rgba(0,0,0,0.4)" : "none" }}
       >
-        <div ref={navRef} className="hide-scrollbar flex gap-2 overflow-x-auto px-4 py-3 sm:justify-center">
+        <div ref={navRef} className="hide-scrollbar flex gap-2 overflow-x-auto px-4 py-3">
           {menuData.map((cat) => (
             <button
               key={cat.id}
               data-category={cat.id}
               onClick={() => scrollToCategory(cat.id)}
-              className={`tab-btn flex items-center gap-2 ${activeCategory === cat.id ? "active" : ""
+              className={`tab-btn flex items-center gap-1.5 ${activeCategory === cat.id ? "active" : ""
                 }`}
             >
-              <span className="text-lg">{cat.icon}</span>
-              <span className="hidden sm:inline">{cat.title}</span>
-              <span className="sm:hidden">{cat.title.replace("lar", "").replace("ler", "")}</span>
+              <span className="text-base">{cat.icon}</span>
+              <span className="text-xs sm:text-sm">{cat.title}</span>
             </button>
           ))}
         </div>
@@ -333,7 +484,18 @@ export default function Home() {
               </h2>
             </div>
 
-            {/* Items Grid */}
+            {/* Dual price labels */}
+            {category.priceLabels && (
+              <div
+                className="mb-3 flex justify-end gap-6 pr-4 text-xs font-medium"
+                style={{ color: "var(--accent)" }}
+              >
+                <span>{category.priceLabels[0]}</span>
+                <span>{category.priceLabels[1]}</span>
+              </div>
+            )}
+
+            {/* Items */}
             <div className="flex flex-col gap-3">
               {category.items.map((item, idx) => (
                 <div
@@ -342,7 +504,7 @@ export default function Home() {
                 >
                   {/* Emoji */}
                   <div
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl"
                     style={{ background: "var(--accent-glow)" }}
                   >
                     {item.emoji}
@@ -352,15 +514,20 @@ export default function Home() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-3">
                       <h3
-                        className="text-base font-semibold"
+                        className="text-sm font-semibold sm:text-base"
                         style={{ color: "var(--foreground)" }}
                       >
                         {item.name}
                       </h3>
-                      <span className="price-tag shrink-0">₺{item.price}</span>
+                      <div className="flex shrink-0 items-center gap-3">
+                        <span className="price-tag text-sm sm:text-base">₺{item.price}</span>
+                        {item.price2 && (
+                          <span className="price-tag text-sm sm:text-base">₺{item.price2}</span>
+                        )}
+                      </div>
                     </div>
                     <p
-                      className="mt-1 text-sm leading-relaxed"
+                      className="mt-1 text-xs leading-relaxed sm:text-sm"
                       style={{ color: "var(--text-secondary)" }}
                     >
                       {item.description}
@@ -380,25 +547,26 @@ export default function Home() {
 
       {/* ─── Footer ─── */}
       <footer className="border-t px-4 py-8 text-center" style={{ borderColor: "var(--card-border)" }}>
-        <div className="animate-float mb-3 text-3xl">🍽️</div>
+        <div className="animate-float mb-3 text-3xl">🌶️</div>
         <p
           className="text-lg font-semibold"
           style={{ fontFamily: "var(--font-playfair), serif", color: "var(--foreground)" }}
         >
-          Lezzet Durağı
+          Karabiber Express
         </p>
         <p className="mt-1 text-sm" style={{ color: "var(--text-muted)" }}>
           Afiyet olsun! 🤍
         </p>
-        <div className="mx-auto mt-4 flex items-center justify-center gap-4 text-xs" style={{ color: "var(--text-muted)" }}>
-          <span>📍 İstanbul</span>
-          <span>•</span>
-          <span>📞 0212 123 45 67</span>
-          <span>•</span>
-          <span>🕐 10:00 – 23:00</span>
+        <div className="mx-auto mt-4 flex flex-col items-center gap-2 text-xs sm:flex-row sm:justify-center sm:gap-4" style={{ color: "var(--text-muted)" }}>
+          <span>📍 Nasuh Mah. Murat Yeni Gün Cad. No:45/1 Cide / Kastamonu</span>
         </div>
-        <p className="mt-6 text-xs" style={{ color: "var(--text-muted)" }}>
-          © 2026 Lezzet Durağı — Tüm hakları saklıdır.
+        <div className="mx-auto mt-2 flex items-center justify-center gap-4 text-xs" style={{ color: "var(--text-muted)" }}>
+          <span>📞 0543 553 76 37</span>
+          <span>•</span>
+          <span>🌐 sucukdukkani.com</span>
+        </div>
+        <p className="mt-4 text-xs" style={{ color: "var(--text-muted)" }}>
+          Ara Gelsin! 🛵
         </p>
       </footer>
     </div>
