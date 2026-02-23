@@ -155,6 +155,7 @@ export default function MenuPage({
                                 alt={menu.name}
                                 className="mx-auto h-16 w-16 rounded-2xl object-cover"
                                 style={{ border: "2px solid rgba(165,180,252,.3)" }}
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
                             />
                         )}
                     </div>
@@ -199,6 +200,7 @@ export default function MenuPage({
                                         src={`${STATIC_BASE}${cat.photoUrl}`}
                                         alt=""
                                         className="h-5 w-5 rounded object-cover"
+                                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                     />
                                 )}
                                 <span className="text-xs sm:text-sm">{cat.name}</span>
@@ -230,6 +232,7 @@ export default function MenuPage({
                                                 src={`${STATIC_BASE}${cat.photoUrl}`}
                                                 alt=""
                                                 className="category-icon h-8 w-8 rounded-lg object-cover"
+                                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                             />
                                         )}
                                         {cat.name}
@@ -259,6 +262,7 @@ export default function MenuPage({
                                                         src={`${STATIC_BASE}${item.photoUrl}`}
                                                         alt={item.name}
                                                         className="h-14 w-14 shrink-0 rounded-xl object-cover"
+                                                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                                     />
                                                 )}
 
@@ -306,6 +310,7 @@ export default function MenuPage({
                         src={`${STATIC_BASE}${menu.logoUrl}`}
                         alt={menu.name}
                         className="animate-float mx-auto mb-3 h-12 w-12 rounded-xl object-cover"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                 )}
                 <p
