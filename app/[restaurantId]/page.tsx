@@ -149,15 +149,13 @@ export default function MenuPage({
                 <div className="animate-fade-in-up relative z-10">
                     {/* Logo or emoji */}
                     <div className="animate-float mx-auto mb-3">
-                        {menu.logoUrl ? (
+                        {menu.logoUrl && (
                             <img
                                 src={`${STATIC_BASE}${menu.logoUrl}`}
                                 alt={menu.name}
                                 className="mx-auto h-16 w-16 rounded-2xl object-cover"
                                 style={{ border: "2px solid rgba(165,180,252,.3)" }}
                             />
-                        ) : (
-                            <div className="text-4xl">🍽️</div>
                         )}
                     </div>
 
@@ -196,14 +194,12 @@ export default function MenuPage({
                                 onClick={() => scrollToCategory(cat.id)}
                                 className={`tab-btn flex items-center gap-1.5 ${activeCategory === cat.id ? "active" : ""}`}
                             >
-                                {cat.photoUrl ? (
+                                {cat.photoUrl && (
                                     <img
                                         src={`${STATIC_BASE}${cat.photoUrl}`}
                                         alt=""
                                         className="h-5 w-5 rounded object-cover"
                                     />
-                                ) : (
-                                    <span className="text-base">🍴</span>
                                 )}
                                 <span className="text-xs sm:text-sm">{cat.name}</span>
                             </button>
@@ -229,14 +225,12 @@ export default function MenuPage({
                                         className="flex items-center gap-3 whitespace-nowrap text-xl font-semibold sm:text-2xl"
                                         style={{ fontFamily: "var(--font-playfair), serif", color: "var(--foreground)" }}
                                     >
-                                        {cat.photoUrl ? (
+                                        {cat.photoUrl && (
                                             <img
                                                 src={`${STATIC_BASE}${cat.photoUrl}`}
                                                 alt=""
                                                 className="category-icon h-8 w-8 rounded-lg object-cover"
                                             />
-                                        ) : (
-                                            <span className="category-icon">🍴</span>
                                         )}
                                         {cat.name}
                                     </h2>
@@ -259,20 +253,13 @@ export default function MenuPage({
                                                 key={item.id}
                                                 className={`glass-card animate-fade-in-up delay-${Math.min(idx + 1, 8)} flex items-start gap-4 p-4`}
                                             >
-                                                {/* Photo or emoji */}
-                                                {item.photoUrl ? (
+                                                {/* Photo */}
+                                                {item.photoUrl && (
                                                     <img
                                                         src={`${STATIC_BASE}${item.photoUrl}`}
                                                         alt={item.name}
                                                         className="h-14 w-14 shrink-0 rounded-xl object-cover"
                                                     />
-                                                ) : (
-                                                    <div
-                                                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl"
-                                                        style={{ background: "var(--accent-glow)" }}
-                                                    >
-                                                        🍽️
-                                                    </div>
                                                 )}
 
                                                 {/* Info */}
@@ -314,14 +301,12 @@ export default function MenuPage({
 
             {/* ─── Footer ─── */}
             <footer className="border-t px-4 py-8 text-center" style={{ borderColor: "var(--card-border)" }}>
-                {menu.logoUrl ? (
+                {menu.logoUrl && (
                     <img
                         src={`${STATIC_BASE}${menu.logoUrl}`}
                         alt={menu.name}
                         className="animate-float mx-auto mb-3 h-12 w-12 rounded-xl object-cover"
                     />
-                ) : (
-                    <div className="animate-float mb-3 text-3xl">🍽️</div>
                 )}
                 <p
                     className="text-lg font-semibold"
