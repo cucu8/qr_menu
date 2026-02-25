@@ -38,7 +38,7 @@ const isLocal = isServer
     ? process.env.NODE_ENV !== 'production'
     : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
-export const API_BASE = process.env.NEXT_PUBLIC_API_URL || (isLocal ? "http://localhost:5252" : "http://31.57.33.170:5000");
+export const API_BASE = process.env.NEXT_PUBLIC_API_URL || (isLocal ? "http://localhost:5252" : "http://31.57.33.170:8080");
 export const STATIC_BASE = API_BASE;
 
 // ── Fetch helper ───────────────────────────────────────────────────────
