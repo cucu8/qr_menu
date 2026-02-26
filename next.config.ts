@@ -6,9 +6,10 @@ const apiHostname = new URL(apiUrl).hostname;
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { protocol: "http", hostname: "localhost", pathname: "/uploads/**" },
-      { protocol: "http", hostname: "127.0.0.1", pathname: "/uploads/**" },
-      { protocol: "http", hostname: "31.57.33.170", pathname: "/uploads/**" },
+      { protocol: "http", hostname: "localhost", pathname: "/upload/**" },
+      { protocol: "http", hostname: "127.0.0.1", pathname: "/upload/**" },
+      { protocol: "http", hostname: "api.htreklam.com", pathname: "/upload/**" },
+      { protocol: "https", hostname: "api.htreklam.com", pathname: "/upload/**" },
     ],
   },
 };
