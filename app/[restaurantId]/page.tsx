@@ -217,89 +217,70 @@ export default function MenuPage({
                         Henüz menü kategorisi eklenmemiş.
                     </div>
                 ) : (
-                    categories.map((cat: MenuCategory, catIdx: number) => {
-                        const products = cat.products.filter((p) => p.isAvailable);
-                        return (
-                            <section key={cat.id} id={catSectionId(cat.id)} className="mb-14">
-                                {/* Section Header */}
-                                <div className="section-divider animate-fade-in-up">
-                                    <h2
-                                        className="flex items-center gap-3 whitespace-nowrap text-xl font-semibold sm:text-2xl"
-                                        style={{ fontFamily: "var(--font-playfair), serif", color: "var(--foreground)" }}
-                                    >
+                    <div className="flex flex-col gap-8">
+                        {categories.map((cat: MenuCategory, catIdx: number) => {
+                            const products = cat.products.filter((p) => p.isActive);
+                            return (
+                                <section
+                                    key={cat.id}
+                                    id={catSectionId(cat.id)}
+                                    className="category-block animate-fade-in-up"
+                                    style={{ animationDelay: `${catIdx * 0.08}s` }}
+                                >
+                                    {/* ── Category Header ── */}
+                                    <div className="category-header">
                                         {cat.photoUrl && (
                                             <img
                                                 src={`${STATIC_BASE}${cat.photoUrl}`}
                                                 alt=""
-                                                className="category-icon h-8 w-8 rounded-lg object-cover"
+                                                className="category-icon"
                                                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                             />
                                         )}
-                                        {cat.name}
-                                    </h2>
-                                    {cat.description && (
-                                        <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
-                                            {cat.description}
-                                        </p>
-                                    )}
-                                </div>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="category-title">{cat.name}</div>
+                                            {cat.description && (
+                                                <div className="category-desc">{cat.description}</div>
+                                            )}
+                                        </div>
+                                        <span className="category-count">{products.length} ürün</span>
+                                    </div>
 
-                                {/* Products */}
-                                <div className="flex flex-col gap-3">
-                                    {products.length === 0 ? (
-                                        <p className="py-4 text-sm" style={{ color: "var(--text-muted)" }}>
-                                            Bu kategoride ürün bulunmuyor.
-                                        </p>
-                                    ) : (
-                                        products.map((item, idx) => (
-                                            <div
-                                                key={item.id}
-                                                className={`glass-card animate-fade-in-up delay-${Math.min(idx + 1, 8)} flex items-start gap-4 p-4`}
-                                            >
-                                                {/* Photo */}
-                                                {item.photoUrl && (
-                                                    <img
-                                                        src={`${STATIC_BASE}${item.photoUrl}`}
-                                                        alt={item.name}
-                                                        className="h-14 w-14 shrink-0 rounded-xl object-cover"
-                                                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                                                    />
-                                                )}
-
-                                                {/* Info */}
-                                                <div className="min-w-0 flex-1">
-                                                    <div className="flex items-start justify-between gap-3">
-                                                        <h3
-                                                            className="text-sm font-semibold sm:text-base"
-                                                            style={{ color: "var(--foreground)" }}
-                                                        >
-                                                            {item.name}
-                                                        </h3>
-                                                        <span className="price-tag shrink-0 text-sm sm:text-base">
-                                                            ₺{item.price % 1 === 0 ? item.price.toFixed(0) : item.price.toFixed(2)}
-                                                        </span>
-                                                    </div>
-                                                    {item.description && (
-                                                        <p
-                                                            className="mt-1 text-xs leading-relaxed sm:text-sm"
-                                                            style={{ color: "var(--text-secondary)" }}
-                                                        >
-                                                            {item.description}
-                                                        </p>
+                                    {/* ── Products ── */}
+                                    <div className="product-list">
+                                        {products.length === 0 ? (
+                                            <div className="empty-category">Bu kategoride ürün bulunmuyor.</div>
+                                        ) : (
+                                            products.map((item, idx) => (
+                                                <div
+                                                    key={item.id}
+                                                    className={`product-row animate-fade-in-up delay-${Math.min(idx + 1, 8)}`}
+                                                >
+                                                    {item.photoUrl && (
+                                                        <img
+                                                            src={`${STATIC_BASE}${item.photoUrl}`}
+                                                            alt={item.name}
+                                                            className="product-thumb"
+                                                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                                        />
                                                     )}
+                                                    <div className="product-info">
+                                                        <div className="product-name">{item.name}</div>
+                                                        {item.description && (
+                                                            <div className="product-desc">{item.description}</div>
+                                                        )}
+                                                    </div>
+                                                    <div className="product-price">
+                                                        ₺{item.price % 1 === 0 ? item.price.toFixed(0) : item.price.toFixed(2)}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ))
-                                    )}
-                                </div>
-
-                                {/* Shimmer divider */}
-                                {catIdx < categories.length - 1 && (
-                                    <div className="animate-shimmer mt-10 h-px w-full rounded-full" />
-                                )}
-                            </section>
-                        );
-                    })
+                                            ))
+                                        )}
+                                    </div>
+                                </section>
+                            );
+                        })}
+                    </div>
                 )}
             </main>
 

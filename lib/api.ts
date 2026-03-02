@@ -6,7 +6,7 @@ export interface Product {
     price: number;
     photoUrl: string | null;
     displayOrder: number;
-    isAvailable: boolean;
+    isActive: boolean;
     menuCategoryId: string;
 }
 
