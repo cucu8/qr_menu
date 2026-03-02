@@ -131,7 +131,7 @@ export default function MenuPage({
         );
     }
 
-    const categories = menu.menuCategories.filter((c) => c.isActive);
+    const categories = menu.menuCategories || [];
 
     return (
         <div className="min-h-screen" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
@@ -219,7 +219,7 @@ export default function MenuPage({
                 ) : (
                     <div className="flex flex-col gap-8">
                         {categories.map((cat: MenuCategory, catIdx: number) => {
-                            const products = cat.products.filter((p) => p.isActive);
+                            const products = cat.products || [];
                             return (
                                 <section
                                     key={cat.id}
