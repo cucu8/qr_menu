@@ -48,6 +48,7 @@ export async function fetchMenu(restaurantId: string): Promise<RestaurantMenu | 
         cache: "no-store",
     });
 
+
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`API error: ${res.status}`);
 
