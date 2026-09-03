@@ -41,6 +41,13 @@ const isLocal = isServer
 export const API_BASE = process.env.NEXT_PUBLIC_API_URL || (isLocal ? "http://localhost:5252" : "https://api.htreklam.com");
 export const STATIC_BASE = API_BASE;
 
+// R2/CDN'e taşınmadan önce yüklenen görseller backend'den relative path (/upload/xxx) olarak dönüyordu.
+// Yeni yüklemeler artık tam CDN URL'i (https://...) döndüğü için, url zaten mutlaksa olduğu gibi kullanılır.
+export function resolveImageUrl(url: string | null | undefined): string | undefined {
+    if (!url) return undefined;
+    return /^https?:\/\//i.test(url) ? url : `${STATIC_BASE}${url}`;
+}
+
 // ── Fetch helper ───────────────────────────────────────────────────────
 export async function fetchMenu(restaurantId: string): Promise<RestaurantMenu | null> {
     const res = await fetch(`${API_BASE}/api/menu/${restaurantId}`, {

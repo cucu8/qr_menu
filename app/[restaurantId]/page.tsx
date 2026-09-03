@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { fetchMenu, STATIC_BASE } from "../../lib/api";
+import { fetchMenu, resolveImageUrl } from "../../lib/api";
 import type { RestaurantMenu, MenuCategory } from "../../lib/api";
 import { use } from "react";
 
@@ -151,10 +151,10 @@ export default function MenuPage({
                     <div className="animate-float mx-auto mb-3">
                         {menu.logoUrl && (
                             <img
-                                src={`${STATIC_BASE}${menu.logoUrl}`}
+                                src={resolveImageUrl(menu.logoUrl)}
                                 alt={menu.name}
                                 className="mx-auto h-16 w-16 rounded-2xl object-cover"
-                                style={{ border: "2px solid rgba(165,180,252,.3)" }}
+                                style={{ border: "2px solid var(--cat-border)" }}
                                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
                             />
                         )}
@@ -197,7 +197,7 @@ export default function MenuPage({
                             >
                                 {cat.photoUrl && (
                                     <img
-                                        src={`${STATIC_BASE}${cat.photoUrl}`}
+                                        src={resolveImageUrl(cat.photoUrl)}
                                         alt=""
                                         className="h-5 w-5 rounded object-cover"
                                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -231,7 +231,7 @@ export default function MenuPage({
                                     <div className="category-header">
                                         {cat.photoUrl && (
                                             <img
-                                                src={`${STATIC_BASE}${cat.photoUrl}`}
+                                                src={resolveImageUrl(cat.photoUrl)}
                                                 alt=""
                                                 className="category-icon"
                                                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -258,7 +258,7 @@ export default function MenuPage({
                                                 >
                                                     {item.photoUrl && (
                                                         <img
-                                                            src={`${STATIC_BASE}${item.photoUrl}`}
+                                                            src={resolveImageUrl(item.photoUrl)}
                                                             alt={item.name}
                                                             className="product-thumb"
                                                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -288,7 +288,7 @@ export default function MenuPage({
             <footer className="border-t px-4 py-8 text-center" style={{ borderColor: "var(--card-border)" }}>
                 {menu.logoUrl && (
                     <img
-                        src={`${STATIC_BASE}${menu.logoUrl}`}
+                        src={resolveImageUrl(menu.logoUrl)}
                         alt={menu.name}
                         className="animate-float mx-auto mb-3 h-12 w-12 rounded-xl object-cover"
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -309,7 +309,11 @@ export default function MenuPage({
                         style={{ color: "var(--text-muted)" }}
                     >
                         {menu.address && <span>📍 {menu.address}</span>}
-                        {menu.phone && <span>📞 {menu.phone}</span>}
+                        {menu.phone && (
+                            <a href={`tel:${menu.phone.replace(/\s+/g, "")}`} style={{ color: "inherit" }}>
+                                📞 {menu.phone}
+                            </a>
+                        )}
                     </div>
                 )}
             </footer>

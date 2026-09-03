@@ -3,23 +3,23 @@
 /* font variables handled via next/font in layout.tsx */
 
 :root {
-  --background: #0d0b14;
-  --foreground: #f0ece4;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.10);
-  --card-hover: rgba(255, 255, 255, 0.09);
-  --accent: #d4a853;
-  --accent-light: #e8c97a;
-  --accent-glow: rgba(212, 168, 83, 0.15);
-  --text-secondary: #9b9590;
-  --text-muted: #6b6560;
-  --nav-bg: rgba(13, 11, 20, 0.90);
-  --section-divider: rgba(212, 168, 83, 0.20);
-  --price-color: #d4a853;
-  --cat-header-bg: rgba(212, 168, 83, 0.07);
-  --cat-border: rgba(212, 168, 83, 0.22);
-  --product-border: rgba(255, 255, 255, 0.08);
-  --product-separator: rgba(255, 255, 255, 0.05);
+  --background: #faf6ef;
+  --foreground: #2e2620;
+  --card-bg: rgba(46, 38, 32, 0.03);
+  --card-border: rgba(46, 38, 32, 0.09);
+  --card-hover: rgba(46, 38, 32, 0.05);
+  --accent: #b5691f;
+  --accent-light: #d99a3f;
+  --accent-glow: rgba(181, 105, 31, 0.12);
+  --text-secondary: #7a6b5a;
+  --text-muted: #a3937f;
+  --nav-bg: rgba(250, 246, 239, 0.92);
+  --section-divider: rgba(181, 105, 31, 0.25);
+  --price-color: #a8481f;
+  --cat-header-bg: rgba(181, 105, 31, 0.07);
+  --cat-border: rgba(181, 105, 31, 0.20);
+  --product-border: rgba(46, 38, 32, 0.08);
+  --product-separator: rgba(46, 38, 32, 0.06);
 }
 
 /* ===== Base ===== */
@@ -90,7 +90,7 @@ body {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 83, .06) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(181, 105, 31, .08) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
 }
@@ -162,14 +162,14 @@ body {
 .tab-btn:hover {
   color: var(--accent-light);
   background: var(--accent-glow);
-  border-color: rgba(212, 168, 83, .2);
+  border-color: rgba(181, 105, 31, .2);
 }
 
 .tab-btn.active {
-  color: #0d0b14;
+  color: #fffaf2;
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
   border-color: transparent;
-  box-shadow: 0 4px 16px rgba(212, 168, 83, .35);
+  box-shadow: 0 4px 16px rgba(181, 105, 31, .35);
 }
 
 /* ===== Category Block ===== */
@@ -177,8 +177,8 @@ body {
   border: 1px solid var(--cat-border);
   border-radius: 20px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  background: #ffffff;
+  box-shadow: 0 2px 20px rgba(46, 38, 32, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 /* Category header band */
@@ -232,8 +232,8 @@ body {
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--accent);
-  background: rgba(212, 168, 83, .12);
-  border: 1px solid rgba(212, 168, 83, .25);
+  background: rgba(181, 105, 31, .12);
+  border: 1px solid rgba(181, 105, 31, .25);
   padding: 3px 10px;
   border-radius: 999px;
   letter-spacing: 0.05em;
@@ -263,7 +263,7 @@ body {
 }
 
 .product-row:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(181, 105, 31, 0.04);
 }
 
 .product-thumb {
@@ -310,7 +310,7 @@ body {
 
 /* ===== Hero Gradient ===== */
 .hero-gradient {
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212, 168, 83, .12) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(181, 105, 31, .12) 0%, transparent 70%);
 }
 
 /* ===== Price Tag (legacy compat) ===== */
@@ -330,7 +330,7 @@ body {
 
 .glass-card:hover {
   background: var(--card-hover);
-  border-color: rgba(212, 168, 83, .2);
+  border-color: rgba(181, 105, 31, .2);
 }
 
 /* ===== Section Divider (legacy compat) ===== */
