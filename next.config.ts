@@ -16,8 +16,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "http", hostname: "localhost", pathname: "/upload/**" },
       { protocol: "http", hostname: "127.0.0.1", pathname: "/upload/**" },
-      { protocol: "http", hostname: "api.htreklamqr.com", pathname: "/upload/**" },
-      { protocol: "https", hostname: "api.htreklamqr.com", pathname: "/upload/**" },
+      { protocol: "http", hostname: "api.htreklamqr.com.tr", pathname: "/upload/**" },
+      { protocol: "https", hostname: "api.htreklamqr.com.tr", pathname: "/upload/**" },
       { protocol: "https", hostname: "pub-5855d22c0745468cb30a8d50949dd704.r2.dev", pathname: "/menu/**" },
     ],
   },
