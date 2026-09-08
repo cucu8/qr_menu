@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
       { protocol: "http", hostname: "api.htreklamqr.com.tr", pathname: "/upload/**" },
       { protocol: "https", hostname: "api.htreklamqr.com.tr", pathname: "/upload/**" },
       { protocol: "https", hostname: "pub-5855d22c0745468cb30a8d50949dd704.r2.dev", pathname: "/menu/**" },
+      { protocol: "https", hostname: "cdn.htreklamqr.com.tr", pathname: "/menu/**" },
     ],
   },
 };
